@@ -1,8 +1,5 @@
 from django.db import models
 
-
-
-
 # Create your models here.
 class StudentProfile(models.Model):
 
@@ -16,7 +13,3 @@ class StudentProfile(models.Model):
     image = models.ImageField(upload_to='studentImages', default='studentImages/user.png')
     created = models.DateTimeField(auto_now_add=True)
     ver = models.BooleanField(default=False)
-
-
-
-
