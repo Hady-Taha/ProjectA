@@ -1,2 +1,1 @@
-# ProjectA
-ProjectA
+# Hello World
