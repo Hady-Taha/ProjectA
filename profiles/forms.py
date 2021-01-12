@@ -32,13 +32,37 @@ class NewUserForm(forms.ModelForm):
     password=forms.CharField(
         min_length=9,
         required=True,
+        label='<i class="zmdi zmdi-lock">'  ,
         widget=forms.PasswordInput(
-            attrs={'class':'form-control','placeholder':'Password'}
+            attrs={'id':'form-pass','placeholder':'Password'}
             
             )
     )
 
-    
+    password2=forms.CharField(
+        min_length=9,
+        required=True,
+        label='<i class="zmdi zmdi-lock-outline">'  ,
+        widget=forms.PasswordInput(
+            attrs={'id':'re_pass','placeholder':'Repeat your password'}
+            
+            )
+    )
+
+
+
+    email=forms.EmailField(
+        min_length=7,
+        required=True,
+        label='<i class="zmdi zmdi-email">',
+        widget=forms.EmailInput(
+            attrs={'id':'email','placeholder':'Your Email'}
+        )
+
+    )
+
+
+
     
     def clean(self):
         cd = self.cleaned_data
