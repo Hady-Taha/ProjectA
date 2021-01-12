@@ -22,10 +22,8 @@ class StudentProfile(models.Model):
 
 
 
-class DoctorProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name=models.CharField(max_length=150,blank=True, null=True)
-    
+
+
 
 
 

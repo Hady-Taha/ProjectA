@@ -77,3 +77,23 @@ class LoginUserForm(forms.ModelForm):
         fields=('username','password',)
     
 
+    username=forms.CharField(
+        min_length=3,
+        required=True,
+        widget=forms.EmailInput(
+            attrs={'id':'your_name','placeholder':'Your Name'}
+        )
+
+    )
+
+
+    password=forms.CharField(
+        min_length=9,
+        required=True,
+        widget=forms.EmailInput(
+            attrs={'id':'your_pass','placeholder':'Password'}
+        )
+
+    )
+
+
