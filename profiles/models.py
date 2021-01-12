@@ -2,9 +2,6 @@ from django.db import models
 
 # Create your models here.
 class StudentProfile(models.Model):
-    
-    name=mo
-
 
 
 
