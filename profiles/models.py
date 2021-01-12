@@ -4,7 +4,7 @@ from django.db import models
 class StudentProfile(models.Model):
 
     STUDENTGENDER = [('male', 'male'), ('female', 'female')]
-    
+
     firstName=models.CharField(max_length=150,blank=True, null=True)
     lastName=models.CharField(max_length=150,blank=True, null=True)
     studentId=models.IntegerField(blank=True, null=True)
@@ -14,6 +14,8 @@ class StudentProfile(models.Model):
     image = models.ImageField(upload_to='studentImages', default='studentImages/user.png')
     created = models.DateTimeField(auto_now_add=True)
     ver = models.BooleanField(default=False)
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
     
 
 
