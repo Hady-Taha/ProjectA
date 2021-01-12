@@ -1,0 +1,150 @@
+/* Design of Body */
+body {
+  background-image: url("../images/6.jpg");
+  min-height: 5 00px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body::after{
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.6; 
+    z-index: -1;
+    
+}
+
+
+        /*<!--#############################################################################################################-->*/
+
+/* Design of Student Registration Form */
+
+
+
+.reg{
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    margin: auto;
+    padding: 10px 0px 10px 0px;
+    border-radius: 15px 15px 0px 0px;
+    
+}
+
+.reg h1{
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 40px 0;
+}
+
+.reg p{
+    font-size: 20px;
+    margin: 15px 0;
+}
+
+.reg input{
+    font-size: 16px;
+    padding: 15px 10px;
+    width: 100%;
+    border: 0;
+    border-radius: 5px;
+    outline: none;
+}
+
+.reg button{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+    padding: 10px 15px;
+    width: 50%;
+    border: 0;
+    border-radius: 5px;
+    background-color: dodgerblue;
+    color: white;
+    cursor: pointer;
+    float: right;
+}
+
+#myFile{
+     font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+    padding: 10px 15px;
+    width: 54%;
+    border: 0;
+    border-radius: 5px;
+    background-color: dodgerblue;
+    cursor: pointer;
+}
+
+}
+.radio{
+    display: inline-block;
+    padding-right: 70px;
+    font-size: 18px;
+    margin-top: 15px;
+    
+}
+
+.radio input{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+}
+
+
+
+
+
+        /*<!--#############################################################################################################-->*/
+
+
+/* Design of Footer */
+
+
+.quick-links{
+    background-color: #272727;
+    display: flex;
+    height: 70px;
+    margin: auto;
+}
+
+.quick-links ul{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.quick-item{
+    list-style: none;
+}
+
+.quick-item a{
+    text-decoration: none;
+    padding: 0px 15px;
+    font-size: 18px;
+    color: white;
+}
+
+.quick-item a:hover{
+    color: skyblue;
+}
+
+.outer-footer{
+    padding: 15px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    background-color: #3f3f3f;
+}
