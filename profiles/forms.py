@@ -13,12 +13,33 @@ class AddNewStudent(forms.ModelForm):
 class NewUserForm(forms.ModelForm):
     class Meta:
         model = User
-        fields=('username','password','password2',)
+        fields=('username','password','password2','email')
     
-    password = forms.CharField(widget=forms.PasswordInput())
-    password2 = forms.CharField(label='confirm Password', widget=forms.PasswordInput())
+    # password = forms.CharField(widget=forms.PasswordInput())
+    # password2 = forms.CharField(label='confirm Password', widget=forms.PasswordInput())
 
+    username=forms.CharField(
+        max_length=25,
+        min_length=3,
+        required=True,
+        label='<i class="zmdi zmdi-account material-icons-name">'  ,
+        widget=forms.TextInput(
+            attrs={'id':'name','placeholder':'Your Name'}
+            )
+    )
 
+    
+    password=forms.CharField(
+        min_length=9,
+        required=True,
+        widget=forms.PasswordInput(
+            attrs={'class':'form-control','placeholder':'Password'}
+            
+            )
+    )
+
+    
+    
     def clean(self):
         cd = self.cleaned_data
         if cd['password'] != cd['password2']:
