@@ -1,8 +1,8 @@
 from django.shortcuts import render
 
 
-def welcome(request):
+def home(request):
     context = {
-        'title':'welcome',
+        'title':'home',
     }
-    return render(request, 'main/welcome.html', context)
+    return render(request, 'main/home.html', context)
