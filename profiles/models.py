@@ -2,6 +2,8 @@ from django.db import models
 
 # Create your models here.
 class Profile(models.Model):
+    
+    
     """
     TODO
     1- import model User from auth model .
@@ -9,5 +11,5 @@ class Profile(models.Model):
     3- add functions .
     
     """
-    
+
     pass
