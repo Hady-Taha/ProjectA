@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class studentProfile(models.Model):
+class StudentProfile(models.Model):
     
     
     """
