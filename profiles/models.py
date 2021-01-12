@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class StudentProfile(models.Model):
@@ -20,16 +21,16 @@ class StudentProfile(models.Model):
 
 
 
-"""
-#TODO
 
-class nameModelDoctor(models.Model):
-    her add fields You want
+class DoctorProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    name=models.CharField(max_length=150,blank=True, null=True)
     
-    !importanat import User from auth model and relation one to one with nameModelDoctor :)
+
+
+
     
     pass
 
 
 
-"""
