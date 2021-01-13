@@ -62,13 +62,13 @@ class NewUserForm(forms.ModelForm):
     
     def clean(self):
         cd = self.cleaned_data
-        if User.objects.filter(user=cd['username']).exists():
+        if User.objects.filter(username=cd['username']).exists():
             raise forms.ValidationError('User exists')
         
         
         if cd['password'] != cd['password2']:
             raise forms.ValidationError('password not match')
-        return cd['password2']
+        
 
 
 
