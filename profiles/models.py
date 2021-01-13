@@ -16,23 +16,3 @@ class StudentProfile(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     ver = models.BooleanField(default=False)
     updated = models.DateTimeField(auto_now=True)
-<<<<<<< HEAD
-    created = models.DateTimeField(auto_now_add=True)
-    
-
-
-
-
-
-
-
-
-
-    
-    pass
-
-
-
-=======
-    created = models.DateTimeField(auto_now_add=True)
->>>>>>> 53798d577ac304b1dabf58efb528e00c84df5961
