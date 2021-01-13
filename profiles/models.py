@@ -16,3 +16,5 @@ class StudentProfile(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     ver = models.BooleanField(default=False)
     updated = models.DateTimeField(auto_now=True)
+
+    #add
