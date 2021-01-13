@@ -22,7 +22,6 @@ class NewUserForm(forms.ModelForm):
         max_length=25,
         min_length=3,
         required=True,
-        label='<i class="zmdi zmdi-account material-icons-name">'  ,
         widget=forms.TextInput(
             attrs={'id':'name','placeholder':'Your Name'}
             )
@@ -32,7 +31,6 @@ class NewUserForm(forms.ModelForm):
     password=forms.CharField(
         min_length=9,
         required=True,
-        label='<i class="zmdi zmdi-lock">'  ,
         widget=forms.PasswordInput(
             attrs={'id':'form-pass','placeholder':'Password'}
             
@@ -42,7 +40,6 @@ class NewUserForm(forms.ModelForm):
     password2=forms.CharField(
         min_length=9,
         required=True,
-        label='<i class="zmdi zmdi-lock-outline">'  ,
         widget=forms.PasswordInput(
             attrs={'id':'re_pass','placeholder':'Repeat your password'}
             
@@ -54,7 +51,6 @@ class NewUserForm(forms.ModelForm):
     email=forms.EmailField(
         min_length=7,
         required=True,
-        label='<i class="zmdi zmdi-email">',
         widget=forms.EmailInput(
             attrs={'id':'email','placeholder':'Your Email'}
         )
@@ -66,8 +62,14 @@ class NewUserForm(forms.ModelForm):
     
     def clean(self):
         cd = self.cleaned_data
+        if User.objects.filter(user=cd['username']).exists():
+            raise forms.ValidationError('User exists')
+        
+        
         if cd['password'] != cd['password2']:
             raise forms.ValidationError('password not match')
+        return cd['password2']
+
 
 
 

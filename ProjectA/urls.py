@@ -20,7 +20,11 @@ from django.conf.urls.static import static
 from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
     path('', views.home),
+=======
+    path('', views.home,name='home'),
+>>>>>>> 53798d577ac304b1dabf58efb528e00c84df5961
     path('profiles/', include('profiles.urls')),
 ]
 urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
