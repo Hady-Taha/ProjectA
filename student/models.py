@@ -16,7 +16,6 @@ class StudentProfile(models.Model):
     gender = models.CharField(max_length=20, blank=True, null=True, choices=STUDENTGENDER)
     image = models.ImageField(upload_to='studentImages', default='studentImages/user.png')
     created = models.DateTimeField(auto_now_add=True)
-    ver = models.BooleanField(default=False)
     updated = models.DateTimeField(auto_now=True)
 
 
