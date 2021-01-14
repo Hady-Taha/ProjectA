@@ -1,12 +1,8 @@
 from django import forms
-from .models import StudentProfile
+
 from django.contrib.auth.models import User
 
-class AddNewStudent(forms.ModelForm):
-    class Meta:
-        model = StudentProfile
-        fields = '__all__'
-    pass
+
 
 
 
