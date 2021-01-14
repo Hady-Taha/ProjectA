@@ -82,17 +82,15 @@ class LoginUserForm(forms.ModelForm):
     username=forms.CharField(
         min_length=3,
         required=True,
-        widget=forms.EmailInput(
+        widget=forms.TextInput(
             attrs={'id':'your_name','placeholder':'Your Name'}
         )
 
     )
-
-
     password=forms.CharField(
         min_length=9,
         required=True,
-        widget=forms.EmailInput(
+        widget=forms.PasswordInput(
             attrs={'id':'your_pass','placeholder':'Password'}
         )
 

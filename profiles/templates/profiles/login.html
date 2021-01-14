@@ -1,4 +1,8 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
 <body>
     <div class="main">
         <!-- Sing in  Form -->
@@ -7,20 +11,23 @@
                 <div class="signin-content">
                     <div class="signin-image">
                         <figure><img src="images/1.jpg" style="border-radius: 25px" alt="sing up image"></figure>
-                        <a href="register.html" class="signup-image-link">Create an account</a>
+                        <a href="{% url 'register' %}" class="signup-image-link">Create an account</a>
+                      
                     </div>
                     <div class="signin-form">
                         <h2 class="form-title">Sign In</h2>
 
-                        <form method="POST" class="register-form" id="login-form">
+                        <form method="POST" class="register-form" id="login-form"> 
+                            {% csrf_token %}
+                            
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="your_name" id="your_name" placeholder="Your Name" />
+                                {{form.username}}
                             </div>
 
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="your_pass" id="your_pass" placeholder="Password" />
+                                 {{form.password}}
                             </div>
 
                             <div class="form-group">
@@ -54,3 +61,5 @@
 
 
 </body>
+
+{% endblock content %}
