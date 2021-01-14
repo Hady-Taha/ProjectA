@@ -14,4 +14,4 @@ class AddNewStudent(forms.ModelForm):
 def clean(self):
     cd = self.cleaned_data
     if StudentProfile.objects.filter(studentId=cd['studentId']).exists():
-         raise forms.ValidationError('User exists')
+        raise forms.ValidationError('User exists')
