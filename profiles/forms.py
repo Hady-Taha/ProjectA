@@ -1,15 +1,6 @@
 from django import forms
-<<<<<<< HEAD
 from django.contrib.auth.models import User
 
-=======
-
-from django.contrib.auth.models import User
-
-
-
-
->>>>>>> 10b9d5c2cdc2970e70f77a8a956caae2d35fd9bf
 
 class NewUserForm(forms.ModelForm):
     class Meta:
