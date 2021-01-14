@@ -10,16 +10,16 @@
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-image">
-                        <figure><img src="images/1.jpg" style="border-radius: 25px" alt="sing up image"></figure>
+                        <figure><img src="{% static 'main/images/1.jpg' %} " style="border-radius: 25px"
+                                alt="sing up image"></figure>
                         <a href="{% url 'register' %}" class="signup-image-link">Create an account</a>
-                      
                     </div>
                     <div class="signin-form">
                         <h2 class="form-title">Sign In</h2>
 
-                        <form method="POST" class="register-form" id="login-form"> 
+                        <form method="POST" class="register-form" id="login-form">
                             {% csrf_token %}
-                            
+
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 {{form.username}}
@@ -27,7 +27,7 @@
 
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                 {{form.password}}
+                                {{form.password}}
                             </div>
 
                             <div class="form-group">

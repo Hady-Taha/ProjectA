@@ -48,8 +48,3 @@ def vLogin(request, username=None, password=None):
 def vLogout(request):
     if request.user.is_authenticated == False:
         return redirect('login')
-    logout(request)
-    context = {
-    'title': 'Logout',
-    }
-    return render(request, 'profiles/login.html', context)
