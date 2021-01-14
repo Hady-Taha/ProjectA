@@ -1,9 +1,6 @@
 from django.db import models
 
 # Create your models here.
-
-
-
 class StudentProfile(models.Model):
 
     STUDENTGENDER = [('male', 'male'), ('female', 'female')]
