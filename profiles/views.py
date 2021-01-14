@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .forms import NewUserForm
-from django.contrib.auth import authenticate , login,logout
+from django.contrib.auth import authenticate , login, logout
 from .forms import NewUserForm,LoginUserForm
 
 # Create your views here.
@@ -41,5 +41,15 @@ def vLogin(request, username=None, password=None):
     context = {
     'title': 'Login',
     'form':form,
+    }
+    return render(request, 'profiles/login.html', context)
+
+
+def vLogout(request):
+    if request.user.is_authenticated == False:
+        return redirect('login')
+    logout(request)
+    context = {
+    'title': 'Logout',
     }
     return render(request, 'profiles/login.html', context)
