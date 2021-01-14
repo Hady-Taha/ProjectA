@@ -3,7 +3,6 @@ from django.db import models
 # Create your models here.
 class StudentProfile(models.Model):
 
-   
     STUDENTGENDER = [('male', 'male'), ('female', 'female')]
     LEVEL = [('level 1','level 1'),('level 2','level 2'),('level 3','level 3'),('level 4','level 4')]
     DEPARTMEMT = [('Cs','Cs'),('It','It'),('General','General')]
@@ -17,7 +16,6 @@ class StudentProfile(models.Model):
     gender = models.CharField(max_length=20, blank=True, null=True, choices=STUDENTGENDER)
     image = models.ImageField(upload_to='studentImages', default='studentImages/user.png')
     created = models.DateTimeField(auto_now_add=True)
-    ver = models.BooleanField(default=False)
     updated = models.DateTimeField(auto_now=True)
 
 

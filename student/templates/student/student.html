@@ -1,103 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+<body>
+    <!-- The Form to add new student-->
+    <div
+        style=" width: 45% ; height: 1000px ; margin-left: auto ; margin-right: auto ; background-color: whitesmoke; border-radius: 25px">
+        <div style="height: 20px"></div>
 
-    {% extends 'base.html' %}
-   {% load static %}
-   {% block content %}
+        <div style="width: 90% ; height: 400px ; margin-left: auto ; margin-right: auto ">
+            <div class="reg">
+                <h1>Student Registration Form</h1>
 
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <button type="submit" class="btn btn-primary btn-lg" style="float: right ; margin-right: 50px">Add</button>
+                </form>
 
+            </div>
+        </div>
 
+    </div>
 
-   <body>
-        
-      
-      <!-- The Form to add new student-->
-      <div style=" width: 45% ; height: 1000px ; margin-left: auto ; margin-right: auto ; background-color: whitesmoke; border-radius: 25px">
-          <div style="height: 20px"></div>
-          
-          <div style="width: 90% ; height: 400px ; margin-left: auto ; margin-right: auto "> 
-              <div class="reg">
-                  <h1>Student Registration Form</h1>
-          
-                  <form>
-              
-                      <p>First Name:</p>
-                      <input type="text" name="firstname" placeholder="First Name">
+    <br><br>
 
-                      <p>Last Name:</p>
-                      <input type="text" name="lastname" placeholder="Last Name">
+    <!-- #################################################################################################### -->
 
-                      <p>Id:</p>
-                      <input type="number" name="id" placeholder="Id">
+    <!-- The footer-->
 
-                      <p>Level:</p>
-                      <input list="level" name="level" id="v">
-                      <datalist id="level">
-                          <option value="level 1">
-                          <option value="level 2">
-                          <option value="level 3">
-                          <option value="level 4">
-                      </datalist>
+    <footer class="footer">
+        <div class="inner-footer">
+            <div class="quick-links">
 
-                      <p>Department:<p>
-                      <input list="department" name="department" id="d">
-                      <datalist id="department">
-                          <option value="CS">
-                          <option value="IT">
-                          <option value="General">
-                      </datalist>
+                <ul>
+                    <li class="quick-item"><a href="#">Home</a></li>
+                    <li class="quick-item"><a href="#">Tutorials</a></li>
+                    <li class="quick-item"><a href="#">Services</a></li>
+                    <li class="quick-item"><a href="#">About Us</a></li>
+                    <li class="quick-item"><a href="#">Contact Us</a></li>
+                </ul>
 
-                      <p>Gender:</p>
-                      <label class="radio">
-                          <input class="radio-one" type="radio" name="gender">
-                          <span class="checkmark"></span>
-                          Male
-                      </label>
-                      <label class="radio">
-                          <input class="radio-one" type="radio" name="gender">
-                          <span class="checkmark"></span>
-                          Female
-                      </label><br>
+            </div>
+        </div>
 
-                      <input type="file" id="myFile" name="filename" class="btn btn-primary btn-lg">
+        <div class="outer-footer">
+            Copyright &copy; Web Coding Pro. All Rights Reserved
+        </div>
+    </footer>
+
+    <!-- ####################################################################################################### -->
 
 
-                      <button type="submit" class="btn btn-primary btn-lg" style="float: right ; margin-right: 50px">Add</button>
+</body>
 
-                  </form>
-                  
-              </div>
-          </div>
-          
-      </div>   
-      
-      <br><br>
-              
-          <!-- #################################################################################################### -->
-
-           <!-- The footer-->
-      
-          <footer class="footer">
-              <div clas="inner-footer">
-                  <div class="quick-links">
-                      
-                      <ul>
-                          <li class="quick-item"><a href="#">Home</a></li>
-                          <li class="quick-item"><a href="#">Tutorials</a></li>
-                          <li class="quick-item"><a href="#">Services</a></li>
-                          <li class="quick-item"><a href="#">About Us</a></li>
-                          <li class="quick-item"><a href="#">Contact Us</a></li>
-                      </ul>
-                      
-                  </div>
-              </div>
-              
-              <div class="outer-footer">
-                  Copyright &copy; Web Coding Pro. All Rights Reserved
-              </div>
-          </footer>
-      
-       <!-- ####################################################################################################### -->
-
-      
-  </body>
-
-  {% endblock content %}
+{% endblock content %}

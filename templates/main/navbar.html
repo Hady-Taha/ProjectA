@@ -1,5 +1,8 @@
+{% if user.is_authenticated == false %}
+
+{% endif %}
 <!-- The Navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position: fixed; top: 0; width: 100%;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
 
         <a class="navbar-brand" href="{% url 'home' %}">Eye Identification Attendence System</a>
@@ -34,16 +37,12 @@
                     <a class="nav-link" href="{% url 'login' %}">Log in</a>
                 </li>
                 {% endif %}
-
-
-
             </ul>
-
-
         </div>
     </div>
 </nav>
 
 <div style="width: 100%; height: 60px"></div>
+
 
 <!-- ####################################################################################################### -->
