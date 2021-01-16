@@ -19,11 +19,11 @@
 
   <video id="video" width="610" height="535" autoplay></video>
 
-<form method="POST" enctype="multipart/form-data"‏>
+<!-- <form method="POST" enctype="multipart/form-data"‏>
   {% csrf_token %}
 <canvas id="canvas" name='photo' width="610" height="465" style="float: right; margin-top: 37px"></canvas>
 <button class="btn btn-danger" type="submit">submit</button>
-</form>
+</form> -->
   
 
 
@@ -134,4 +134,20 @@
 
 
 <script src="{% static 'main/js/main.js' %} "></script>
+
+
+<canvas id="canvas" height="300px" width="300px"></canvas>
+<form  method="POST" id="form1">
+  {% csrf_token %}
+  <input type="hidden" name="canvasData" id="my_hidden"> 
+  <input type="submit" name="submit" value="submit"onclick="save()"> </form>
+<script>
+  function save() {
+    var canvas = document.getElementById('canvas');
+    var photo= document.getElementById('my_hidden').value = canvas.toDataURL('image/png');
+
+    document.forms["form1"].submit();
+    console.log(canvas)
+  }
+</script>
 {% endblock content %}
