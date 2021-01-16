@@ -26,9 +26,8 @@ body::after {
 
 /* Design of Student Registration Form */
 
-
-
 .reg {
+    
     margin-left: auto;
     margin-right: auto;
     width: 500px;
@@ -102,10 +101,6 @@ body::after {
     cursor: pointer;
     outline: none;
 }
-
-
-
-
 
 /*<!--#############################################################################################################-->*/
 
