@@ -19,7 +19,8 @@
 
   <video id="video" width="610" height="535" autoplay></video>
 
-<form method="POST">
+<form method="POST" enctype="multipart/form-data"‏>
+  {% csrf_token %}
 <canvas id="canvas" name='photo' width="610" height="465" style="float: right; margin-top: 37px"></canvas>
 <button class="btn btn-danger" type="submit">submit</button>
 </form>

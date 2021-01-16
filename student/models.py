@@ -19,3 +19,9 @@ class StudentProfile(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
 
+class StudentAttendence(models.Model):
+    time=models.DateTimeField()
+    studentId=models.IntegerField(blank=True, null=True)
+    firstName=models.CharField(max_length=150,blank=True, null=True)
+    level=models.CharField(max_length=30, blank=True , null=True)
+    department= models.CharField(max_length=30,blank=True, null=True)
