@@ -25,7 +25,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="attendance.html">Take Attendance</a>
+                    <a class="nav-link" href="{% url 'attendance' %}">Take Attendance</a>
                 </li>
 
                 {% if user.is_authenticated %}
