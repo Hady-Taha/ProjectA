@@ -18,5 +18,10 @@ def student(request):
 
 
 def attendance(request):
-    
-    return render(request, 'student/attendance.html')
+    if request.method == 'POST':
+        print(request.POST['photo'])
+        pass
+    context = {
+        'title': 'attendance',
+    }
+    return render(request, 'student/attendance.html',context)
