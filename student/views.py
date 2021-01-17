@@ -17,9 +17,13 @@ def student(request):
     return render(request, 'student/student.html', context)
 
 
+<<<<<<< HEAD
 def attendance(request):
     data_image = request.POST.get('image')
     print(data_image)
+=======
+def attendance(request):   
+>>>>>>> b16c32222c3548ab6a66ef8935f3d1eac326edfe
     context = {
         'title': 'attendance',
     }
