@@ -21,16 +21,9 @@ class StudentProfile(models.Model):
 
 
 class StudentAttendence(models.Model):
-<<<<<<< HEAD
     
-=======
-    time=models.DateTimeField()
->>>>>>> b16c32222c3548ab6a66ef8935f3d1eac326edfe
     studentId=models.IntegerField(blank=True, null=True)
     firstName=models.CharField(max_length=150,blank=True, null=True)
     level=models.CharField(max_length=30, blank=True , null=True)
     department= models.CharField(max_length=30,blank=True, null=True)
-<<<<<<< HEAD
     time=models.DateTimeField(auto_now=True)
-=======
->>>>>>> b16c32222c3548ab6a66ef8935f3d1eac326edfe
