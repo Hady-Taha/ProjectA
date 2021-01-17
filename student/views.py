@@ -18,9 +18,8 @@ def student(request):
 
 
 def attendance(request):
-    if request.method == 'POST':
-        print(request.POST['photo'])
-        pass
+    data_image = request.POST.get('image')
+    print(data_image)
     context = {
         'title': 'attendance',
     }

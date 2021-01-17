@@ -51,21 +51,38 @@ function vidOff() {
 
 /* Function to take photo and matching it */
 
+$(function () {
+    var canvas = document.getElementById('canvas');
+    var data_pixel = canvas.getContext('2d').getImageData(0, 0, 640, 480).data;
+    
+    $('.form1').submit(function (e) {
+        // let serialize = $(this).serialize();
+        let $form = $(".form1");
+        let $form_data = new FormData($form[0]);
+        let url = $(this).data('url')
+        // console.log(serialize)
+        $.ajax({
+            method: "POST",
+            url: url,
+            data: { 'data':form_data,'image': JSON.stringify(data_pixel) },
+            success: function (response) {
+                console.log(response)
+            }
+
+        });
+
+    });
+
+
+
+
+});
+
+
 function photoFun() {
     // Elements for taking the snapshot
-    var canvas = document.getElementById('canvas');
-    var context = canvas.getContext('2d');
+
     var video = document.getElementById('video');
-
-    // Trigger photo take
-
-    context.drawImage(video, 0, 0, 600, 480);
-
-    
-    document.getElementById('id').innerHTML = "1111";
-    document.getElementById('name').innerHTML = "Mostafa Amin";
-    document.getElementById('level').innerHTML = "3 level";
-    document.getElementById('dep').innerHTML = "CS";
 
 }
 
