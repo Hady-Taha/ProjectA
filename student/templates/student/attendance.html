@@ -2,25 +2,137 @@
 {% load static %}
 {% block content %}
 
+<body>
+  <!-- The Video-->
+  <div>
+
+    <div class="d-grid gap-2 col-5 mx-auto">
+      <button class="btn btn-primary" type="button" id="openPhoto" ><a href="#ph"
+          style="color: white; text-decoration: none;font-size: 20px">open</a></button>
+
+      <button class="btn btn-primary" type="button" id="videoOff" style="font-size: 20px">close</button>
+      <button class="btn btn-primary" type="button" id="photo"  ><a href="#ta"
+          style="color: white; text-decoration: none;font-size: 20px">Snap Photo</a></button>
+
+    </div>
 
 
-  <button type="button" name="button" class='btn btn-outline-dark btn-lg' id='start'>Start Video Capture</button>
+    <video id="video" width="610" height="535" autoplay></video>
 
-  <div class="container-fluid mt-2">
-    <video id="video" width="640" height="480" autoplay></video><br>
-    <button type="button" data-toggle="modal" data-target="#image_model" class="btn btn-lg btn-dark" id="snap">Snap
-      Photo</button>
+
+    <canvas id="canvas" width="610" height="465" style="float: right; margin-top: 37px"></canvas>
+
+
+    <br><br><br><br>
+    <!-- ############################################################################################################# -->
+
+
+    <!-- Tabel "Is this the student's data?" -->
+    <div
+      style=" width: 60% ; height: 250px ; margin-left: auto ; margin-right: auto ; background-color: whitesmoke; border-radius: 25px"
+      id="ta">
+      <div style="height: 20px"></div>
+      <div style="width: 90% ; height: 400px ; margin-left: auto ; margin-right: auto ">
+
+        <h3>Is this the student's data?</h3>
+        <table class="table table-bordered border border-4">
+
+          <thead>
+            <tr>
+              <th scope="row">Id</th>
+              <td id="id">No Element</td>
+            </tr>
+
+          </thead>
+
+          <tbody>
+            <tr>
+              <th scope="row">Name</th>
+              <td id="name">No Element</td>
+            </tr>
+
+            <tr>
+              <th scope="row">Level</th>
+              <td id="level">No Element</td>
+            </tr>
+
+            <tr id="id">
+              <th scope="row">Department</th>
+              <td id="dep">No Element</td>
+            </tr>
+          </tbody>
+
+        </table>
+
+      </div>
+    </div>
+
+    <br><br>
+
+    <button type="button" class="btn btn-primary btn-lg" style="float: right ; margin-right: 50px"
+      onclick="attendance()"><a href="#ph" style="color: white; text-decoration: none; font-size: 30px">Yes</a></button>
+
+    <br><br><br><br>
+
   </div>
 
-
-<button type="button" class="btn btn-secondary" data-dismiss="modal">Retake</button>
-<form action="{% url 'attendance' %}" method="post" class="image_submit_form">
-  {% csrf_token %}
-  <input type="submit" value="Use Image" class="btn btn-primary" id="use_image">
-</form>
+  <!-- ######################################################################################################### -->
 
 
-<script src="{% static 'main/js/main.js' %} "></script>
+  <!-- Tabel "Is this the student's data?" -->
 
+  <table class="table table-responsive table-hover" id="myTable" style="background-color: whitesmoke">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Time</th>
+        <td scope="col">Id</td>
+        <td scope="col">Name</td>
+        <td scope="col">Level</td>
+        <td scope="col">Department</td>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr></tr>
+
+    </tbody>
+
+  </table>
+
+  <br><br><br>
+
+  <!-- ########################################################################################################## -->
+
+  <!-- The footer-->
+
+  <footer class="footer">
+    <div clas="inner-footer">
+      <div class="quick-links">
+
+        <ul>
+          <li class="quick-item"><a href="#">Home</a></li>
+          <li class="quick-item"><a href="#">Tutorials</a></li>
+          <li class="quick-item"><a href="#">Services</a></li>
+          <li class="quick-item"><a href="#">About Us</a></li>
+          <li class="quick-item"><a href="#">Contact Us</a></li>
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="outer-footer">
+      Copyright &copy; Web Coding Pro. All Rights Reserved
+    </div>
+  </footer>
+
+  <!-- ########################################################################################################## -->
+
+
+
+
+
+  <script src="{% static 'main/js/main.js' %} "></script>
+</body>
 
 {% endblock content %}
