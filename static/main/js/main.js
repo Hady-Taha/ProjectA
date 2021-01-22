@@ -16,13 +16,13 @@ $(function () {
     e.preventDefault();
     let token = $('input[name=csrfmiddlewaretoken]').val()
     let url = $(this).data('url')
-    
+
     $.ajax({
       type: "POST",
       url: url,
       data: { csrfmiddlewaretoken: token , data:photoFun() },
       success: function (response) {
-
+        alert('devo')
       }
     });
 
