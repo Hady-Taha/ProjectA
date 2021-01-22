@@ -12,18 +12,31 @@ $(function () {
     vidOff()
   });
 
-  $('#photo').click(function (e) {
+  $('.done').submit(function (e) {
     e.preventDefault();
-    photoFun()
+    let token = $('input[name=csrfmiddlewaretoken]').val()
+    let url = $(this).data('url')
     
-    
-    
-    console.log(photoFun())
-  
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: { csrfmiddlewaretoken: token , data:photoFun() },
+      success: function (response) {
+
+      }
+    });
+
+    console.log(serialize);
+
   });
 
 
-function openFun() {
+
+
+
+
+  
+  function openFun() {
 
     var video = document.getElementById('video');
 
@@ -41,7 +54,7 @@ function openFun() {
 
   }
 
-function vidOff() {
+  function vidOff() {
     const video = document.querySelector('video');
 
     // A video's MediaStream object is available through its srcObject attribute
@@ -54,21 +67,20 @@ function vidOff() {
     tracks[0].stop();
 
     // Or stop all like so:
-  tracks.forEach(track => track.stop())
-}
+    tracks.forEach(track => track.stop())
+  }
+
 
   var photoFun = function () {
+
     var canvas = document.getElementById('canvas');
     var context = canvas.getContext('2d');
     var video = document.getElementById('video');
-
     context.drawImage(video, 0, 0, 600, 480);
     var dataURL = canvas.toDataURL();
-
-
     return dataURL;
-  }
 
+  }
 
 
 });

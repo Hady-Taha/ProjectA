@@ -7,12 +7,14 @@
   <div>
 
     <div class="d-grid gap-2 col-5 mx-auto">
-      <button class="btn btn-primary" type="button" id="openPhoto" ><a href="#ph"
-          style="color: white; text-decoration: none;font-size: 20px">open</a></button>
+      <button class="btn btn-primary"  type="button" id="openPhoto" >open</a></button>
 
       <button class="btn btn-primary" type="button" id="videoOff" style="font-size: 20px">close</button>
-      <button class="btn btn-primary" type="button" id="photo"  ><a href="#ta"
-          style="color: white; text-decoration: none;font-size: 20px">Snap Photo</a></button>
+      <form method="post" class="done" data-url="{% url 'attendance' %}">
+        {% csrf_token %}
+        <button class="btn btn-primary" type="submit">Snap Photo</button>
+      </form>
+      
 
     </div>
 
@@ -69,8 +71,7 @@
 
     <br><br>
 
-    <button type="button" class="btn btn-primary btn-lg" style="float: right ; margin-right: 50px"
-      onclick="attendance()"><a href="#ph" style="color: white; text-decoration: none; font-size: 30px">Yes</a></button>
+    <button type="button" class="btn btn-primary btn-lg" style="float: right ; margin-right: 50px">Yes</button>
 
     <br><br><br><br>
 
