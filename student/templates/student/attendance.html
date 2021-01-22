@@ -12,7 +12,8 @@
       <button class="btn btn-primary" type="button" id="videoOff" style="font-size: 20px">close</button>
       <form method="post" class="done" data-url="{% url 'attendance' %}">
         {% csrf_token %}
-        <button class="btn btn-primary" type="submit">Snap Photo</button>
+        <button class="btn btn-primary" type="button">Snap Photo</button>
+        <button class="btn btn-primary" type="submit">submit</button>
       </form>
       
 
