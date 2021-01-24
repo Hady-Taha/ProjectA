@@ -52,14 +52,14 @@ function photoFun() {
   var context = canvas.getContext("2d");
   var video = document.getElementById("video");
   // Trigger photo take
-  context.drawImage(video, 0, 0, 600, 600);
+  context.drawImage(video, 0, 0, 250, 250);
+  console.log(covertData());
 }
 
-//ابلكيشن الالكل
 function covertData() {
   var canvas = document.getElementById("canvas");
   var dataurl = canvas.toDataURL();
-  
+
   return dataurl
 }
 
@@ -71,6 +71,7 @@ function covertData() {
 $(function () {
 
   $(".sendToServer").submit(function (e) {
+
     e.preventDefault();
     let url = $(this).data('url')
     let token = $("input[name=csrfmiddlewaretoken]").val();
@@ -86,8 +87,8 @@ $(function () {
         alert("devo");
       },
     });
-  
-  
+
+
   });
 
   //csrfmiddlewaretoken‏
