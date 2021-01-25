@@ -1,6 +1,11 @@
 from django.shortcuts import render
 from .forms import AddNewStudent
+from .models import StudentProfile,StudentAttendence
 import base64
+import numpy as np
+from cv2 import cv2
+import matplotlib.pyplot as plt
+from .IPCode import iris
 # Create your views here.
 
 def student(request):
@@ -19,6 +24,7 @@ def student(request):
 
 
 def attendance(request):
+ 
     if request.method=='POST':
         img_data=request.POST['data']
         x=img_data.replace('data:image/png;base64,','')
@@ -27,8 +33,22 @@ def attendance(request):
         import base64
         with open("media/imageToSave5.png", "wb") as fh:
             fh.write(base64.decodebytes(name_binary))
-         
-     
+        image=StudentProfile.objects.values('image')
+
+        for i in image:
+            x=str(i.get('image'))
+            imgToDB = cv2.imread('media/'+x)
+            eyeToDB = iris(imgToDB)
+            kpToDB = eyeToDB.toKP()
+
+            # iris from front-end to test
+            imgNew = cv2.imread("media/imageToSave5.png")
+            eyeNew = iris(imgNew)
+            student=StudentProfile.objects.get(image=x)
+            x=eyeNew.match(kpToDB)
+            if x>=20:
+                StudentAttendence.objects.create(studentId=student.studentId)
+
     context = {
         'title': 'attendance',
     }

@@ -1,9 +1,6 @@
 /* Function to open the camera*/
 
 
-
-
-
 function openFun() {
   var video = document.getElementById("video");
 
@@ -87,8 +84,6 @@ $(function () {
         alert("devo");
       },
     });
-
-
   });
 
   //csrfmiddlewaretoken‏
