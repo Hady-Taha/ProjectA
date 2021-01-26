@@ -29,19 +29,20 @@
           <th scope="col">Level</th>
           <th scope="col">Department</th>
           <th scope="col">Time</th>
+          <th scope="col">Count</th>
         </tr>
       </thead>
       <tbody>
         {% for at in attendence %}
         <tr>
           <th scope="row">{{at.id}}</th>
-          <td>{{at.studentId}}</td>
-          <td>{{at.firstName}}</td>
-          <td>{{at.level}}</td>
-          <td>{{at.department}}</td>
+          <td>{{at.student.studentId}}</td>
+          <td>{{at.student.firstName}}</td>
+          <td>{{at.student.level}}</td>
+          <td>{{at.student.department}}</td>
           <td>{{at.time}}</td>
+          <td>{{attendence.count}}</td>
         </tr>
-        {{at.countStudent}}
         {% endfor %}
       </tbody>
 

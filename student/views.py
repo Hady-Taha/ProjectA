@@ -47,10 +47,11 @@ def attendance(request):
             x=eyeNew.match(kpToDB)
             # print(x)
             if x>=15:
-                StudentAttendence.objects.create(studentId=student.studentId, firstName=student.firstName, level=student.level, department=student.department)
+                StudentAttendence.objects.get_or_create(student=student)
     attendence=StudentAttendence.objects.all()
     context = {
         'title': 'attendance',
-        'attendence':attendence,
+        'attendence': attendence,
+        
     }
     return render(request, 'student/attendance.html',context)
