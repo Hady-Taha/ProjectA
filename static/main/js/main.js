@@ -1,6 +1,4 @@
-/* Function to open the camera*/
-
-
+//open the camera
 function openFun() {
   var video = document.getElementById("video");
 
@@ -19,10 +17,8 @@ function openFun() {
   }
 }
 
-/*<!--#############################################################################################################-->*/
 
-/* Function to close the camera*/
-
+//close the camera
 function vidOff() {
   const video = document.querySelector("video");
 
@@ -39,10 +35,8 @@ function vidOff() {
   tracks.forEach((track) => track.stop());
 }
 
-/*<!--#############################################################################################################-->*/
 
-/* Function to take photo and matching it */
-
+//take photo and matching it 
 function photoFun() {
   // Elements for taking the snapshot
   var canvas = document.getElementById("canvas");
@@ -50,9 +44,11 @@ function photoFun() {
   var video = document.getElementById("video");
   // Trigger photo take
   context.drawImage(video, 0, 0, 250, 250);
-  console.log(covertData());
+  // console.log(covertData());
 }
 
+
+//convert photo to base64
 function covertData() {
   var canvas = document.getElementById("canvas");
   var dataurl = canvas.toDataURL();
@@ -60,11 +56,9 @@ function covertData() {
   return dataurl
 }
 
-/*<!--#############################################################################################################-->*/
-
-/* Attendance registration */
 
 
+//send photo base64 to server 
 $(function () {
 
   $(".sendToServer").submit(function (e) {
@@ -81,11 +75,10 @@ $(function () {
         data: covertData(),
       },
       success: function (response) {
-        alert("devo");
+        alert("done");
       },
     });
   });
 
   //csrfmiddlewaretoken‏
 });
-/*<!--#############################################################################################################-->*/

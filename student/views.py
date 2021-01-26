@@ -24,13 +24,12 @@ def student(request):
 
 
 def attendance(request):
- 
+
     if request.method=='POST':
         img_data=request.POST['data']
         x=img_data.replace('data:image/png;base64,','')
         name_binary = f'{x}'.encode('utf-8')
-
-        import base64
+        # print(x)
         with open("media/imageToSave5.png", "wb") as fh:
             fh.write(base64.decodebytes(name_binary))
         image=StudentProfile.objects.values('image')
@@ -46,10 +45,12 @@ def attendance(request):
             eyeNew = iris(imgNew)
             student=StudentProfile.objects.get(image=x)
             x=eyeNew.match(kpToDB)
-            if x>=20:
-                StudentAttendence.objects.create(studentId=student.studentId)
-
+            # print(x)
+            if x>=15:
+                StudentAttendence.objects.create(studentId=student.studentId, firstName=student.firstName, level=student.level, department=student.department)
+    attendence=StudentAttendence.objects.all()
     context = {
         'title': 'attendance',
+        'attendence':attendence,
     }
     return render(request, 'student/attendance.html',context)

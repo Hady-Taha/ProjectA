@@ -1,40 +1,59 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
-<!-- The Video-->
-<div>
-
-  <div class="d-grid gap-2 col-5 mx-auto">
-    <button class="btn btn-primary" type="button" onclick="openFun()"><a href="#ph"
-        style="color: white; text-decoration: none;font-size: 20px">open</a></button>
-
-    <button class="btn btn-primary" type="button" onclick="vidOff()" style="font-size: 20px">close</button>
-    <button class="btn btn-primary" type="button" onclick="photoFun()" id="ph"><a href="#ta"
-        style="color: white; text-decoration: none;font-size: 20px">Snap Photo</a></button>
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mb-5 d-flex flex-row justify-content-center">
+      <button class="btn btn-primary m-3" type="button" onclick="openFun()">open</button>
+      <button class="btn btn-primary m-3" type="button" onclick="photoFun()" id="ph">Snap Photo</button>
+      <button class="btn btn-primary m-3" type="button" onclick="vidOff()">close</button>
+    </div>
+    <div class="col-md-6  embed-responsive embed-responsive-16by9">
+      <video id="video" autoplay></video>
+    </div>
+    <div class="col-md-6 d-flex justify-content-center">
+      <canvas id="canvas" width="255px" height="255px"></canvas>
+    </div>
   </div>
+  <div class="row mt-5">
 
 
-  <video id="video" width="610" height="535" autoplay></video>
 
+    <table class="table table-dark rounded-lg">
 
-  <canvas id="canvas" width="610" height="465"  ></canvas>
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">studentId</th>
+          <th scope="col">Name</th>
+          <th scope="col">Level</th>
+          <th scope="col">Department</th>
+          <th scope="col">Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for at in attendence %}
+        <tr>
+          <th scope="row">{{at.id}}</th>
+          <td>{{at.studentId}}</td>
+          <td>{{at.firstName}}</td>
+          <td>{{at.level}}</td>
+          <td>{{at.department}}</td>
+          <td>{{at.time}}</td>
+        </tr>
+        {{at.countStudent}}
+        {% endfor %}
+      </tbody>
 
-
-  <br><br><br><br>
-  <!-- ############################################################################################################# -->
-
-
-  <br><br>
+    </table>
+  </div>
 
   <form class='sendToServer' method="POST" data-url="{% url 'attendance' %}">
     {% csrf_token %}
-    <button type="submit" class="btn btn-primary btn-lg" style="float: right ; margin-right: 50px">Yes</button>
+    <button type="submit" class="btn btn-primary float-right btn-lg">Yes</button>
   </form>
-  <br><br><br><br>
-
 </div>
+
 
 
 
