@@ -53,14 +53,15 @@ class iris:
 
         bf = cv2.BFMatcher()
         imgKP = self.toKP()
+
+
+
         matches = bf.knnMatch(imgKP,imgsKP,k=2)
 
         good = []
         for m,n in matches:
             if m.distance < 0.8*n.distance:
                 good.append([m])
-
-
 
         x = len(imgKP)
         z = len(good)
@@ -70,16 +71,3 @@ class iris:
 
         return r
             
-
-
-
-
-
-
-
-
-
-  
-
-    
-

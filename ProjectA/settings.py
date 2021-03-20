@@ -25,7 +25,7 @@ SECRET_KEY = 'u)3842*a78qi@feh&fgb7-#*-%w1^zvt78#r-ncgtyhf=*cm7&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['9f17072306fb.ngrok.io','127.0.0.1']
 
 
 # Application definition
@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'profiles',
     'student',
     'crispy_forms',
+    'webservices',
+    'rest_framework',
+    'rest_framework.authtoken',
+   # 'djoser'
 ]
 
 MIDDLEWARE = [
@@ -75,11 +79,14 @@ WSGI_APPLICATION = 'ProjectA.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'attendancesystemdb',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'USER': 'root',
+        'PASSWORD': '1234',
     }
 }
 
@@ -129,3 +136,19 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+
+REST_FRAMEWORK = {
+    
+    'DEFAULT_PERMISSION_CLASSES': (       
+    'rest_framework.permissions.IsAuthenticated',
+    ),  
+
+    'DEFAULT_AUTHENTICATION_CLASSES': (        
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',   
+    )
+    
+}
+
