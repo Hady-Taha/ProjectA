@@ -57,6 +57,16 @@ function covertData() {
 }
 
 
+//convert register photo to base64
+function coverRegistertData() {
+  var canvas = document.getElementById("registerCanavas");
+  var dataurl = canvas.toDataURL();
+
+  return dataurl
+}
+
+
+
 
 //send photo base64 to server 
 $(function () {
@@ -78,7 +88,31 @@ $(function () {
         alert("done");
       },
     });
+
+    $(".sendRegiserData").submit(function (e) {
+
+      e.preventDefault();
+      let url = $(this).data('url')
+      let token = $("input[name=csrfmiddlewaretoken]").val();
+  
+      $.ajax({
+        type: "POST",
+        url: url,
+        data: {
+          csrfmiddlewaretoken: token,
+          data: coverRegistertData(),
+        },
+        success: function (response) {
+          alert("done");
+        },
+      });
   });
+
+
+
+
+
+
 
   //csrfmiddlewaretoken‏
 }); 

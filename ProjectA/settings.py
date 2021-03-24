@@ -25,7 +25,7 @@ SECRET_KEY = 'u)3842*a78qi@feh&fgb7-#*-%w1^zvt78#r-ncgtyhf=*cm7&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['9f17072306fb.ngrok.io','127.0.0.1']
+ALLOWED_HOSTS = ['691fc24aa1c1.ngrok.io','127.0.0.1']
 
 
 # Application definition
@@ -77,16 +77,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'ProjectA.wsgi.application'
 
 
+
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'attendancesystemdb',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': '1234',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

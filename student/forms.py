@@ -6,7 +6,7 @@ from .models import StudentProfile
 class AddNewStudent(forms.ModelForm):
     class Meta:
         model = StudentProfile
-        fields = '__all__'
+        fields = ('firstName', 'lastName','studentId','level','department','gender',)
 
 
 

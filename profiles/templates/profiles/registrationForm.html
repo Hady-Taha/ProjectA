@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block content %}
 <body>
 
     <!-- The Navbar-->
@@ -52,51 +54,7 @@
                 <h1>Student Registration Form</h1>
 
                 <form>
-
-                    <p>First Name:</p>
-                    <input type="text" name="firstname" placeholder="First Name">
-
-                    <p>Last Name:</p>
-                    <input type="text" name="lastname" placeholder="Last Name">
-
-                    <p>Id:</p>
-                    <input type="number" name="id" placeholder="Id">
-
-                    <p>Level:</p>
-                    <input list="level" name="level" id="v">
-                    <datalist id="level">
-                        <option value="level 1">
-                        <option value="level 2">
-                        <option value="level 3">
-                        <option value="level 4">
-                    </datalist>
-
-                    <p>Department:<p>
-                            <input list="department" name="department" id="d">
-                            <datalist id="department">
-                                <option value="CS">
-                                <option value="IT">
-                                <option value="General">
-                            </datalist>
-
-                            <p>Gender:</p>
-                            <label class="radio">
-                                <input class="radio-one" type="radio" name="gender">
-                                <span class="checkmark"></span>
-                                Male
-                            </label>
-                            <label class="radio">
-                                <input class="radio-one" type="radio" name="gender">
-                                <span class="checkmark"></span>
-                                Female
-                            </label><br>
-
-                            <input type="file" id="myFile" name="filename" class="btn btn-primary btn-lg">
-
-
-                            <button type="submit" class="btn btn-primary btn-lg"
-                                style="float: right ; margin-right: 50px">Add</button>
-
+                    {{form}}
                 </form>
 
             </div>
@@ -135,3 +93,4 @@
 
 </body>
 
+{% endblock content %}

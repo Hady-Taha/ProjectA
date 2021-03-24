@@ -6,6 +6,8 @@ import numpy as np
 from cv2 import cv2
 import matplotlib.pyplot as plt
 from .IPCode import iris
+import uuid 
+import os
 # Create your views here.
 
 
@@ -15,10 +17,17 @@ def student(request):
         return redirect('login')
     form = AddNewStudent()
     if request.method == 'POST':
-        form = AddNewStudent(request.POST or None, request.FILES or None)
+        img_data=request.POST['data']
+        x=img_data.replace('data:image/png;base64,','')
+        name_binary = f'{x}'.encode('utf-8')
+        with open(f"media/studentImages/{str(uuid.uuid4.hex)}.png", "wb") as fh:
+            fh.write(base64.decodebytes(name_binary))
+
+        form = AddNewStudent(request.POST or None)
         if form.is_valid():
-            form.save()
-            
+            x = form.save(commit=False)
+            x.image=os.path.join(f"media/studentImages/{str(uuid.uuid4.hex)}.png")
+            x.save()
         pass
     context = {
         'title':'registration',
